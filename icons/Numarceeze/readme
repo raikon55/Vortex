@@ -1,0 +1,10 @@
+The theme is intended for dark desktop environments and it inherits Papirus-Dark Icon Theme which is not included in the package.
+This icon theme consists of:
+actions - taken from Breeze Icon Theme (LGPL-2.1+) dark variant and mildly dimmed
+apps - taken from Numix Circle Icon Theme and just a bit from Numix Bevel Icon Theme (probably only terminal icon - can't recall)
+devices - taken from Arc Icon Theme
+mimes - taken from Numix Icon Theme and slightly unified and dimmed and few colors chenged
+places - taken from Arc Icon Theme
+
+All credits goes to the appropriate authors.
+All the icons - besides actions wich are from Breeze Icon Theme (LGPL-2.1+) - are under GPL-3+ license.

@@ -1,0 +1,43 @@
+background yes
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+use_spacer none
+use_xft yes
+xftfont HandelGotD:size=8
+xftalpha 0.5
+update_interval 1.0
+draw_shades no
+draw_outline no # amplifies text if yes
+draw_borders no
+uppercase no # set to yes if you want all text to be in uppercase
+border_inner_margin 3
+minimum_size 0
+
+default_color white
+own_window_colour brown
+own_window_transparent yes
+alignment top_left
+#alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+gap_x 400
+gap_y -20
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+#This setup uses a graffitistyle font (Bring tha noize) to display -time -cpu% -free space% -free ram%. Behind each stat is a digbat font (the B.O.M.B. (Best Of Magurno Brushes)) with a kind of paint splatter effect.
+
+#Color
+color1 ddedf8 #Frosted white
+color2 546775 #Silver
+color3 696969 #Gray
+color4 000000 #Black
+color5 ffffff #White
+
+TEXT
+${color 696969}${font the B.O.M.B. (Best Of Magurno Brushes):size=80}Z${offset -30}${voffset -40}${color ffffff}${font Bring tha noize:size=30}CPU ${CPU} ${color ffffff}${goto 200}%${goto 240}${voffset -14}${color 696969}${font the B.O.M.B. (Best Of Magurno Brushes):size=85}${voffset 0}J${color ffffff}${font Bring tha noize:size=30}${voffset -42}${offset -17}NET ${downspeedf wlp1s0}${goto 520}${color 696969}${font the B.O.M.B. (Best Of Magurno Brushes):size=70}${offset -30}${voffset -10}x${goto 555}${color ffffff}${font Bring tha noize:size=30}${offset -22}${voffset -35}RAM ${memperc}%
+#${color 696969}${font the B.O.M.B. (Best Of Magurno Brushes):size=80}f${offset -30}${voffset -40}${color ffffff}${font Bring tha noize:size=30}${time %H:%M}${goto 220}${voffset -14}${color 696969}${font the B.O.M.B. (Best Of Magurno Brushes):size=60}Z${offset -20}${voffset -22}${color ffffff}${font Bring tha noize:size=30}CPU ${CPU} ${color ffffff}${goto 380}%${goto 470}${color 696969}${font the B.O.M.B. (Best Of Magurno Brushes):size=85}${voffset -15}J${color ffffff}${font Bring tha noize:size=30}${voffset -42}${offset -17}NET ${downspeedf eth0}${goto 780}${color 696969}${font the B.O.M.B. (Best Of Magurno Brushes):size=70}${offset -30}${voffset -10}x${goto 830}${color ffffff}${font Bring tha noize:size=30}${offset -42}${voffset -35}RAM ${memperc}%
+

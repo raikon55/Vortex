@@ -1,0 +1,121 @@
+use_xft yes
+xftfont Cantarell:size=10
+xftalpha 1.0
+#text_buffer_size 1024
+
+# Tempo de atualização
+update_interval 1.0
+
+# Tempo que Conky vai atualizar antes de fechar
+# Colocar zero para rodar sempre.
+total_run_times 0
+
+# Criar a própria janela ao invés de usar do desktop (necessário
+# para nautilus)
+own_window yes
+own_window_type override
+own_window_argb_visual no
+own_window_argb_value 0
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Usar buffering em dobro (reduz a oscilação, mas não deve
+# funcionar para todos)
+double_buffer yes
+
+# Área mínima de texto
+minimum_size 0 0
+maximum_width 250
+
+# Draw shades?
+draw_shades yes
+
+# Draw outlines?
+draw_outline no
+
+# Colocar margem ao redor?
+draw_borders no
+
+# Stippled borders?
+stippled_borders 0
+
+# Espação entre extremidade e texto
+border_inner_margin 0
+
+# Tamanho da borda
+border_width 1
+draw_graph_borders no
+
+default_color white
+#default_shade_color black
+#default_outline_color white
+
+# Alinhar janela (remover # do item desejado)
+#alignment top_left
+#alignment top_right
+alignment bottom_left
+#alignment bottom_right
+
+# Espaço entre bordas e extremidade do monitor
+# same thing as passing -x at command line
+gap_x 10
+gap_y 390
+
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# Tudo maiusculo?
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+if_up_strictness address
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+short_units yes
+pad_percents 2
+imlib_cache_size 0
+
+
+
+top_name_width 10
+update_interval 1
+
+# Cores
+color0 ffffff #branco
+color1 5F8787 #azul
+color2 FFA300 #dourado
+color3 000000 #preto
+color4 FF0000 #vermelho
+color5 696969 #cinza
+color6 00FF01 #verde
+color7 b1c9c9 #Branco gelo
+
+own_window_colour b1c9c9
+TEXT
+${font BRINGTHANOIZE:size=20}${color7}KEYBOARD SHORTCUTS
+${font Cantarell:size=12}${color1}Programs
+${font Cantarell:size=10}${color0}Ctrl + Alt + T${offset 71}Terminal
+Super + F${offset 92}Firefox
+Super + A${offset 91}File manager
+Super + V${offset 90}Vim
+Super + E${offset 91}Text editor
+Super + T${offset 91}Libreoffice
+Super + C${offset 90}Calculator
+Super + N${offset 89}NetBeans
+Super + M${offset 89}FreeMind
+
+${font Cantarell:size=12}${color1}Commands
+${font Cantarell:size=10}${color0}F10${offset 120}Logout options
+Super + K${offset 83}Kill process
+Alt + W${offset 95}Maximize window
+Alt + F4${offset 93}Close window
+Alt + Tab${offset 87}Next window
+Alt + Esc${offset 90}Previous window

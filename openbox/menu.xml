@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+	<menu id="root-menu" label="Menu">
+        <separator label="Menu"/>
+        <item label="Terminator">
+			<action name="Execute">
+				<command>terminator</command>
+			</action>
+		</item>
+		<item label="File Manager">
+			<action name="Execute">
+				<command>thunar</command>
+			</action>
+        </item>
+	<menu id="apps-accessories-menu" label="Acessories">
+		<item label="Text editor">
+			<action name="Execute">
+				<command>mousepad</command>
+			</action>
+		</item>
+		<item label="Notes">
+			<action name="Execute">
+				<command>xfce4-notes</command>
+			</action>
+		</item>
+		<item label="VIM">
+			<action name="Execute">
+				<command>terminator --command="vim"</command>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-internet-menu" label="Internet">
+		<item label="Firefox">
+			<action name="Execute">
+				<command>firefox</command>
+			</action>
+		</item>
+        	<item label="Thunderbird">
+           		 <action name="Execute">
+                		<command>thunderbird</command>
+            		</action>
+        	</item>
+        <item label="Telegram">
+			<action name="Execute">
+                <command>/opt/Telegram/Telegram</command>
+			</action>
+		</item>
+    </menu>
+    <menu id="apps-devolveper" label="Development">
+        <item label="Atom">
+            <action name="Execute">
+                <command>atom</command>
+            </action>
+        </item>
+        <item label="Pycharm">
+            <action name="Execute">
+                <command>pycharm</command>
+            </action>
+        </item>
+    </menu>
+	<menu id="apps-office-menu" label="Office">
+		<item label="Base">
+			<action name="Execute">
+				<command>libreoffice --base</command>
+			</action>
+		</item>
+		<item label="Calc">
+			<action name="Execute">
+				<command>libreoffice --calc</command>
+			</action>
+		</item>
+		<item label="Draw">
+			<action name="Execute">
+				<command>libreoffice --draw</command>
+			</action>
+		</item>
+		<item label="Impress">
+			<action name="Execute">
+				<command>libreoffice --impress</command>
+			</action>
+		</item>
+		<item label="Math">
+			<action name="Execute">
+				<command>libreoffice --math</command>
+			</action>
+		</item>
+		<item label="Printer Administration">
+			<action name="Execute">
+				<command>libreoffice --printeradmin</command>
+			</action>
+		</item>
+		<item label="Writer">
+			<action name="Execute">
+				<command>libreoffice --writer</command>
+			</action>
+	        </item>
+	    <item label="Evince">
+			<action name="Execute">
+        		<command>evince</command>
+        	</action>
+        </item>
+        <item label="Geogebra">
+            <action name="Execute">
+                <command>geogebra</command>
+            </action>
+        </item>
+	</menu>
+	<menu id="apps-multimedia-menu" label="Multimedia">
+		<item label="VLC">
+			<action name="Execute">
+				<command>vlc</command>
+			</action>
+		</item>
+		<item label="Image Viewer">
+			<action name="Execute">
+				<command>gthumb</command>
+			</action>
+		</item>
+	</menu>
+	<separator label="Settings"/>
+	<menu id="app-setup-menu" label="System">
+		<item label="Nitrogen">
+			<action name="Execute">
+				<command>nitrogen</command>
+			</action>
+		</item>
+		<item label="Plank Manager">
+			<action name="Execute">
+				<command>plank --preferences</command>
+			</action>
+		</item>
+		<item label="LxAppearance">
+			<action name="Execute">
+				<command>lxappearance</command>
+			</action>
+		</item>
+	</menu>
+	<menu id="logoff-menu" label="Logoff">
+		<item label="Shutdown...">
+			<action name="Execute">
+				<command>oblogout</command>
+			</action>
+		</item>
+		<item label="Kill process">
+			<action name="Execute">
+				<command>xkill</command>
+            		</action>
+		</item>
+	</menu>
+</openbox_menu>
+

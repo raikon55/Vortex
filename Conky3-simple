@@ -1,0 +1,65 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Cantarell= 8
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#own_window_argb_visual yes
+#own_window_argb_value 100
+
+alignment bl
+gap_x 1220
+gap_y 590
+minimum_size 90 0
+
+
+default_bar_size 60 8
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades no
+
+default_color efefef
+default_shade_color 1d1d1d
+
+# Cores
+color0 ffffff #branco
+color1 5F8787 #azul acinzentado
+color2 FFA300 #dourado
+color3 000000 #preto
+color4 FF0000 #vermelho
+color5 696969 #cinza
+color6 00FF01 #verde
+color7 b1c9c9 #Branco gelo
+
+
+TEXT
+${font BRINGTHANOIZE:size=40}${color7}${time %H:%M}${font}
+${font Cantarell:size=15}${color1}${time %d.%m.%Y}${font}
+${font Cantarell:size=9}${color5}${uptime_short}${font}${color0}
+
+${font Cantarell:size=12}Packages ${offset 10}${texeci 180 pacman -Q | wc -l}
+Updates ${offset 16}${texeci 180 pacman -Qu | wc -l}
