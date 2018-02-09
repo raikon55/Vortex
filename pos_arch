@@ -23,7 +23,7 @@ basic() {
 
 interface() {
 
-	pacman -S openbox oblogout thunar thunar-volman lightdm lightdm-gtk-greeter arc-icon-theme bc xcompmgr nitrogen screenfetch git plank --noconfirm
+	pacman -S openbox oblogout thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-icon-theme bc xcompmgr nitrogen screenfetch git plank --noconfirm
 	if [ $? -eq "0" ]; then
 		echo 'Interface gráfica instalada'
         sleep 5
@@ -50,7 +50,7 @@ fonts() {
 
 programs() {
 
-	pacman -S mousepad evince freemind lxappearance firefox libreoffice-still vim conky terminator zsh --noconfirm
+	pacman -S mousepad evince atom geogebra pycharm freemind firefox libreoffice-still vim conky terminator zsh --noconfirm
 	if [ $? -eq "0" ]; then
 		echo 'Programas instalados'
 		sleep 5
