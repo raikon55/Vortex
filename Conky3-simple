@@ -14,7 +14,7 @@ no_buffers yes
 # - Text settings - #
 #####################
 use_xft yes
-xftfont Cantarell= 8
+xftfont Cantarell=8
 override_utf8_locale yes
 text_buffer_size 2048
 
@@ -33,7 +33,6 @@ alignment bl
 gap_x 1220
 gap_y 590
 minimum_size 90 0
-
 
 default_bar_size 60 8
 
@@ -61,5 +60,8 @@ ${font BRINGTHANOIZE:size=40}${color7}${time %H:%M}${font}
 ${font Cantarell:size=15}${color1}${time %d.%m.%Y}${font}
 ${font Cantarell:size=9}${color5}${uptime_short}${font}${color0}
 
-${font Cantarell:size=12}Packages ${offset 10}${texeci 180 pacman -Q | wc -l}
-Updates ${offset 16}${texeci 180 pacman -Qu | wc -l}
+# ${font Cantarell:size=12}Packages ${offset 10}${texeci 180 pacman -Q | wc -l}
+# Updates ${offset 16}${texeci 180 pacman -Qu | wc -l}
+
+${font Cantarell:size=12}Packages ${offset 10}${texeci 180 apt list --installed | wc -l}
+Updates ${offset 16}${texeci 180 apt list --upgradable | wc -l}

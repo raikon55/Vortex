@@ -1,0 +1,32 @@
+" VI iMproved file config
+" Date 02/06/18
+" Created by Eduardo
+" No lincesed
+
+" ENABLE SYNTAX HIGHLIGHT
+syntax enable
+" set background=light
+colorscheme gocode
+
+" TABs
+set tabstop=4 " <TAB> == 4 <SPACE>
+set softtabstop=4
+set expandtab " tab are space
+set ai
+
+" VISUAL
+set number " show lines numbers
+set showcmd " show the last command
+set cursorline " highlight current line
+set showmatch " highlight parenthesis-like character match
+
+" SEARCH
+set incsearch
+set hlsearch
+
+" BACKUP
+set backup " enable backup file
+set backupdir=~/.vim/temp,/temp " directory to save
+set backupskip=/temp/*
+set directory=~/.vim/temp,/temp " directory to save
+set writebackup " enable write backup

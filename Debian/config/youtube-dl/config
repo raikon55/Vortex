@@ -1,0 +1,24 @@
+## Network
+--socket-timeout 60
+--max-filesize 600M
+# --max-downloads 15
+--retries 5
+--no-continue
+--no-cache-dir
+
+## Video
+--yes-playlist
+--buffer-size 1024
+--no-resize-buffer
+--restrict-filenames
+-w
+-i
+
+## Format
+--prefer-free-formats
+--add-metadata
+-f 'best[height<=720]+bestaudio'
+
+## Save conf
+-o ~/Videos/%(title)s\ -\ %(uploader)s.%(ext)s
+--no-overwrite

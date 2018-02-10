@@ -1,0 +1,28 @@
+# Setup  nano
+# Created by Eduardo
+# 10/05/2018 00:31
+# No licensed
+
+#### HIGHLIGHT SYNTAX ####
+include ~/.config/nano/syntax/c.nanorc
+include ~/.config/nano/syntax/python.nanorc
+include ~/.config/nano/syntax/sh.nanorc
+
+#### SET ####
+set autoindent
+set tabsize 4
+set tabstospaces
+set matchbrackets "(<[{)>]}"
+set brackets ""')>]}"
+set linenumbers
+set constantshow
+
+#### UNSET ####
+unset positionlog
+unset casesensitive
+unset mouse
+unset quiet
+unset nohelp
+unset locking
+unset nonewlines
+unset suspend
