@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
-	<menu id="root-menu" label="Menu">
+
+    <menu id="root-menu" label="Menu">
+
         <separator label="Menu"/>
         <item label="Terminator">
 			<action name="Execute">
@@ -12,10 +14,16 @@
 				<command>thunar</command>
 			</action>
         </item>
-	<menu id="apps-accessories-menu" label="Acessories">
+
+    <menu id="apps-accessories-menu" label="Acessories">
+        <item label="Applicantion Finder">
+            <action name="Execute">
+                <command>xfce4-appfinder</command>
+            </action>
+        </item>
 		<item label="Text editor">
 			<action name="Execute">
-				<command>mousepad</command>
+				<command>kate</command>
 			</action>
 		</item>
 		<item label="Notes">
@@ -23,43 +31,61 @@
 				<command>xfce4-notes</command>
 			</action>
 		</item>
-		<item label="VIM">
+		<item label="VirtualBox">
 			<action name="Execute">
-				<command>terminator --command="vim"</command>
+				<command>virtualbox</command>
 			</action>
 		</item>
 	</menu>
-	<menu id="apps-internet-menu" label="Internet">
+
+    <menu id="apps-internet-menu" label="Internet">
 		<item label="Firefox">
 			<action name="Execute">
 				<command>firefox</command>
 			</action>
 		</item>
-        	<item label="Thunderbird">
+        <item label="Safe Mode Firefox">
+            <action name="Execute">
+                <command>firefox --safe-mode --private-window</command>
+            </action>
+        </item>
+<!--    <item label="Thunderbird">
            		 <action name="Execute">
                 		<command>thunderbird</command>
             		</action>
-        	</item>
+        </item> -->
         <item label="Telegram">
 			<action name="Execute">
-                <command>/opt/Telegram/Telegram</command>
+                <command>telegram-desktop</command>
 			</action>
 		</item>
     </menu>
+
     <menu id="apps-devolveper" label="Development">
         <item label="Atom">
             <action name="Execute">
                 <command>atom</command>
             </action>
         </item>
-        <item label="Pycharm">
+        <item label="Eclipse">
+            <action name="Execute">
+                <command>/opt/eclipse/eclipse</command>
+            </action>
+        </item>
+        <item label="Meld">
+            <action name="Execute">
+                <command>meld</command>
+            </action>
+        </item>
+<!--        <item label="Pycharm">
             <action name="Execute">
                 <command>pycharm</command>
             </action>
-        </item>
+        </item> -->
     </menu>
-	<menu id="apps-office-menu" label="Office">
-		<item label="Base">
+
+    <menu id="apps-office-menu" label="Office">
+		<item label="Libre Office">
 			<action name="Execute">
 				<command>libreoffice --base</command>
 			</action>
@@ -69,31 +95,26 @@
 				<command>libreoffice --calc</command>
 			</action>
 		</item>
-		<item label="Draw">
-			<action name="Execute">
-				<command>libreoffice --draw</command>
-			</action>
-		</item>
-		<item label="Impress">
-			<action name="Execute">
-				<command>libreoffice --impress</command>
-			</action>
-		</item>
-		<item label="Math">
-			<action name="Execute">
-				<command>libreoffice --math</command>
-			</action>
-		</item>
-		<item label="Printer Administration">
-			<action name="Execute">
-				<command>libreoffice --printeradmin</command>
-			</action>
-		</item>
 		<item label="Writer">
 			<action name="Execute">
 				<command>libreoffice --writer</command>
 			</action>
-	        </item>
+		</item>
+	    <item label="Free Plane">
+			<action name="Execute">
+				<command>freeplane</command>
+			</action>
+		</item>
+        <item label="Galculator">
+            <action name="Execute">
+                <command>galculator</command>
+            </action>
+        </item>
+<!--	   <item label="LaTex">
+			<action name="Execute">
+				<command></command>
+			</action>
+		</item> -->
 	    <item label="Evince">
 			<action name="Execute">
         		<command>evince</command>
@@ -105,7 +126,8 @@
             </action>
         </item>
 	</menu>
-	<menu id="apps-multimedia-menu" label="Multimedia">
+
+    <menu id="apps-multimedia-menu" label="Multimedia">
 		<item label="VLC">
 			<action name="Execute">
 				<command>vlc</command>
@@ -117,13 +139,19 @@
 			</action>
 		</item>
 	</menu>
-	<separator label="Settings"/>
+
+    <separator label="Settings"/>
 	<menu id="app-setup-menu" label="System">
 		<item label="Nitrogen">
 			<action name="Execute">
 				<command>nitrogen</command>
 			</action>
 		</item>
+        <item label="Copmton">
+            <action name="Execute">
+                <command>copmton-conf</command>
+            </action>
+        </item>
 		<item label="Plank Manager">
 			<action name="Execute">
 				<command>plank --preferences</command>
@@ -135,7 +163,8 @@
 			</action>
 		</item>
 	</menu>
-	<menu id="logoff-menu" label="Logoff">
+
+    <menu id="logoff-menu" label="Logoff">
 		<item label="Shutdown...">
 			<action name="Execute">
 				<command>oblogout</command>
@@ -144,8 +173,7 @@
 		<item label="Kill process">
 			<action name="Execute">
 				<command>xkill</command>
-            		</action>
+            </action>
 		</item>
 	</menu>
 </openbox_menu>
-

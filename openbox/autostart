@@ -9,12 +9,18 @@ plank &
 tint2 &
 
 ## Composite
-xcompmgr &
+compton --backend glx --paint-on-overlay --vsync opengl-swc &
 
 ## Conky
-conky -c ~/.conky1-white &
-conky -c ~/.conky2-black &
-conky -c ~/.conky3-simple &
+conky -c $HOME/.conky1-white &
+conky -c $HOME/.conky2-black &
+conky -c $HOME/.conky3-simple &
 
 ## Network applet
 nm-applet --no-agent &
+
+## Notes
+xfce4-notes &
+
+## Terminal
+guake &
