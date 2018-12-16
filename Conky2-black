@@ -99,18 +99,19 @@ color6 00FF01 #verde
 color7 b1c9c9 #Branco gelo
 
 own_window_colour b1c9c9
+
 TEXT
 ${font BRINGTHANOIZE:size=20}${color7}KEYBOARD SHORTCUTS
 ${font Cantarell:size=12}${color1}Programs
 ${font Cantarell:size=10}${color0}Ctrl + Alt + T${offset 71}Terminal
 Super + F${offset 92}Firefox
 Super + A${offset 91}File manager
-Super + V${offset 90}Vim
+#Super + V${offset 90}Vim
 Super + E${offset 91}Text editor
 Super + T${offset 91}Libreoffice
 Super + C${offset 90}Calculator
-Super + N${offset 89}NetBeans
-Super + M${offset 89}FreeMind
+Super + N${offset 89}Eclipse
+Super + M${offset 89}Free Plane
 
 ${font Cantarell:size=12}${color1}Commands
 ${font Cantarell:size=10}${color0}F10${offset 120}Logout options

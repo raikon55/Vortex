@@ -1,0 +1,5 @@
+# Home
+export PATH=$HOME/bin:$PATH
+
+# Configurar pt_BR
+export LANG=pt_BR.UTF-8
