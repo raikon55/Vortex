@@ -52,8 +52,7 @@ interface() {
    	else
        	$ERRO
        	exit 1
-   	fic
-
+   	fi
 }
 
 ## Instalar fontes
@@ -73,7 +72,6 @@ fontes() {
 
 ## Instalar programas
 programas() {
-
 	$APT kate evince atom geogebra freeplane vim conky guake bash-completion 2>/dev/null
     $APT libreoffice-writer libreoffice-calc --no-install-recommends 2>/dev/null
     $APT -t unstable firefox=63.0.3-1 2>/dev/null
@@ -110,6 +108,7 @@ if [[ "$USER" = "root" ]];
 then
     printf "Wait..."
     sleep 3
+    time nohup atualizar
     time nohup atualizar
 else
     printf %b "Necessita ser um super usuário para executar o script.\nAbortando..."
