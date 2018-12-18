@@ -1,4 +1,10 @@
 #!/bin/bash
+
+###############################
+#   Criado por Eduardo Lopes  #
+#   edufelopes@gmail.com      #
+###############################
+
 #####################################
 #   Pos instalação da               #
 #   distribuição GNU/Linux Debian   #
@@ -7,28 +13,30 @@
 ## Variaveis
 APT="apt install -y --no-install-suggests"
 ERRO="printf %b 'Ops...\nAlgo não saiu como esperado\n'"
+LOG="2>>pos_debian.log 1>/dev/null"
 
 ## Atualizar repositorios
-atualizar() {
-    mv "$PWD/Debian/sources.list" "/etc/apt/"
-    mv "$PWD/Debian/preferences" "/etc/apt/"
+atualizar()
+{
+    mv "$PWD/Debian/sources.list" "$PWD/Debian/preferences" "/etc/apt/"
 
     # Subshell
     (
-        apt update && apt upgrade -y 2>/dev/null
-        apt install deborphan curl -y 2>/dev/null
+        apt update && apt upgrade -y
+        apt install deborphan curl gnupg -y
         curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add
         curl -sL https://static.geogebra.org/linux/office@geogebra.org.gpg.key | apt-key add
-    )
+    ) $LOG
 
     essencial
     return 0
 }
 
 ## Instalar básico
-essencial() {
+essencial()
+{
 
-    $APT xorg mtp-tools jmtpfs pulseaudio pavucontrol 2>/dev/null
+    $APT xorg mtp-tools jmtpfs pulseaudio pavucontrol $LOG
 	if [[ $?  -eq "0" ]];
     then
 		printf %b "Xorg, drivers de video e pulseaudio instalados"
@@ -41,9 +49,10 @@ essencial() {
 }
 
 ## Instalar Openbox
-interface() {
+interface()
+{
 
-	$APT openbox thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch plank 2>/dev/null
+	$APT openbox thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch plank $LOG
 	if [[ $? -eq "0" ]];
     then
 		printf %b "Interface gráfica instalada\n"
@@ -56,9 +65,10 @@ interface() {
 }
 
 ## Instalar fontes
-fontes() {
+fontes()
+{
 
-    $APT ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family 2>/dev/null
+    $APT ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family $LOG
     if [[ $? -eq "0" ]];
     then
    		printf %b "Fontes instaladas"
@@ -71,10 +81,14 @@ fontes() {
 }
 
 ## Instalar programas
-programas() {
-	$APT kate evince atom geogebra freeplane vim conky guake bash-completion 2>/dev/null
-    $APT libreoffice-writer libreoffice-calc --no-install-recommends 2>/dev/null
-    $APT -t unstable firefox=63.0.3-1 2>/dev/null
+programas()
+{
+
+    (
+        $APT kate evince atom geogebra freeplane vim conky guake bash-completion
+        $APT libreoffice-writer libreoffice-calc --no-install-recommends
+        $APT -t unstable firefox firefox-l10n-pt-br firefox-l10n-en-gb
+    ) $LOG
 	if [[ $? -eq "0" ]];
     then
 		printf %b "Programas instalados"
@@ -87,32 +101,27 @@ programas() {
 }
 
 ## Configuração final
-confsys() {
+confsys()
+{
 
-    mkdir -p "$HOME/.themes" "$HOME/.icons"
-    mv "$PWD/icons/*" "$HOME/.themes/"
-    mv "$PWD/fonts/*" "$HOME/.icons/"
+    mv -u "$PWD/icons/*" "/usr/share/themes/"
+    mv -u "$PWD/fonts/*" "/usr/share/icons/"
 
-    cd "Debian/"
-    for tmp in "$PWD/config";
-    do
-        mv -r "$PWD/$tmp" "$HOME/.config";
-    done
-
-    apt autoremove && apt autoclean
-	apt list --installed | egrep lightdm && systemctl enable lightdm
-    apt update && apt install -f
+    (
+        apt autoremove && apt autoclean
+    	apt list --installed | egrep lightdm && systemctl enable lightdm
+        apt update && apt install -f
+    ) $LOG
 }
 
-if [[ "$USER" = "root" ]];
+if [[ "$EUID" -ne 0 ]];
 then
-    printf "Wait..."
+    printf "Iniciando..."
     sleep 3
-    time nohup atualizar
-    time nohup atualizar
+    atualizar
 else
     printf %b "Necessita ser um super usuário para executar o script.\nAbortando..."
-    exit 0
+    exit
 fi
 
 printf %b "Pos instalação terminada com sucesso"
