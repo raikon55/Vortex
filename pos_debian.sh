@@ -13,7 +13,7 @@
 ## Variaveis
 APT="apt install -y --no-install-suggests"
 ERRO="printf %b 'Ops...\nAlgo não saiu como esperado\n'"
-LOG="2>>pos_debian.log 1>/dev/null"
+LOG_ERR="2>pos_debian.log 1>/dev/null"
 
 ## Atualizar repositorios
 atualizar()
@@ -24,9 +24,9 @@ atualizar()
     (
         apt update && apt upgrade -y
         apt install deborphan curl gnupg -y
-        curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add
-        curl -sL https://static.geogebra.org/linux/office@geogebra.org.gpg.key | apt-key add
-    ) $LOG
+        curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add $LOG_ERR
+        curl -sL https://static.geogebra.org/linux/office@geogebra.org.gpg.key | apt-key add $LOG_ERR
+    ) &>/dev/null
 
     essencial
     return 0
@@ -36,7 +36,7 @@ atualizar()
 essencial()
 {
 
-    $APT xorg mtp-tools jmtpfs pulseaudio pavucontrol $LOG
+    $APT xorg mtp-tools jmtpfs pulseaudio pavucontrol $LOG_ERR
 	if [[ $?  -eq "0" ]];
     then
 		printf %b "Xorg, drivers de video e pulseaudio instalados"
@@ -52,7 +52,7 @@ essencial()
 interface()
 {
 
-	$APT openbox thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch plank $LOG
+	$APT openbox thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch plank $LOG_ERR
 	if [[ $? -eq "0" ]];
     then
 		printf %b "Interface gráfica instalada\n"
@@ -68,7 +68,7 @@ interface()
 fontes()
 {
 
-    $APT ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family $LOG
+    $APT ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family $LOG_ERR
     if [[ $? -eq "0" ]];
     then
    		printf %b "Fontes instaladas"
@@ -88,7 +88,7 @@ programas()
         $APT kate evince atom geogebra freeplane vim conky guake bash-completion
         $APT libreoffice-writer libreoffice-calc --no-install-recommends
         $APT -t unstable firefox firefox-l10n-pt-br firefox-l10n-en-gb
-    ) $LOG
+    ) &>/dev/null
 	if [[ $? -eq "0" ]];
     then
 		printf %b "Programas instalados"
@@ -111,10 +111,10 @@ confsys()
         apt autoremove && apt autoclean
     	apt list --installed | egrep lightdm && systemctl enable lightdm
         apt update && apt install -f
-    ) $LOG
+    ) &>/dev/null
 }
 
-if [[ "$EUID" -ne 0 ]];
+if [[ "$EUID" -eq 0 ]];
 then
     printf "Iniciando..."
     sleep 3
