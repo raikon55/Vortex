@@ -61,7 +61,7 @@
 		</item>
     </menu>
 
-    <menu id="apps-devolveper" label="Development">
+    <menu id="apps-devolveper" label="Desenvolvimento">
         <item label="Atom">
             <action name="Execute">
                 <command>atom</command>
@@ -133,7 +133,7 @@
 				<command>vlc</command>
 			</action>
 		</item>
-		<item label="Image Viewer">
+		<item label="Visualizador de Imagem">
 			<action name="Execute">
 				<command>gthumb</command>
 			</action>
@@ -165,12 +165,12 @@
 	</menu>
 
     <menu id="logoff-menu" label="Logoff">
-		<item label="Shutdown...">
+		<item label="Desligar...">
 			<action name="Execute">
 				<command>oblogout</command>
 			</action>
 		</item>
-		<item label="Kill process">
+		<item label="Encerrar processo">
 			<action name="Execute">
 				<command>xkill</command>
             </action>

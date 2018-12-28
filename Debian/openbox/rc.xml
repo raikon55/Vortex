@@ -95,9 +95,9 @@
                 <command>firefox</command>
             </action>
         </keybind>
-        <keybind key="C-A-t">
+        <keybind key="F12">
             <action name="Execute">
-                <command>terminator</command>
+                <command>guake</command>
             </action>
         </keybind>
         <keybind key="W-a">
@@ -112,12 +112,12 @@
         </keybind>
         <keybind key="W-v">
             <action name="Execute">
-                <command>terminator -fx vim</command>
+                <command>atom</command>
             </action>
         </keybind>
         <keybind key="W-e">
             <action name="Execute">
-                <command>mousepad</command>
+                <command>kate</command>
             </action>
         </keybind>
         <keybind key="W-l">
@@ -130,11 +130,6 @@
                 <command>galculator</command>
             </action>
         </keybind>
-        <keybind key="W-n">
-            <action name="Execute">
-                <command></command>
-            </action>
-        </keybind>
         <keybind key="F10">
             <action name="Execute">
                 <command>oblogout</command>
@@ -142,12 +137,17 @@
         </keybind>
         <keybind key="W-m">
         	<action name="Execute">
-        		<command>freemind</command>
+        		<command>freeplane</command>
         	</action>
         </keybind>
         <keybind key="W-q">
             <action name="Execute">
-                <command>/opt/Telegram/Telegram</command>
+                <command>telegram-desktop</command>
+            </action>
+        </keybind>
+        <keybind key="C-A-c">
+            <action name="Execute">
+                <command>telegram-desktop</command>
             </action>
         </keybind>
     </keyboard>
