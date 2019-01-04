@@ -13,12 +13,14 @@
 ## Variaveis
 APT="apt install -y --no-install-suggests"
 ERRO="printf %b 'Ops...\nAlgo não saiu como esperado\n'"
+LOG="2>pos_debian.log 1>/dev/null"
 
 ## Programas a serem instalados
 ESSENCIAL="xorg mtp-tools jmtpfs pulseaudio pavucontrol"
 INTERFACE="openbox thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch plank"
 FONTES="ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family"
-PROGRAMAS_BASICOS="kate meld evince atom freeplane vim conky guake bash-completion compton-conf telegram-desktop geogebra-classic"
+PROGRAMAS_BASICOS="kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
+PROGRAMAS_TERCEIROS="geogebra-classic atom code"
 XFCE4="xfce4-notes xfce4-appfinder"
 LIBREOFFICE="libreoffice-writer libreoffice-calc --no-install-recommends"
 FIREFOX="-t unstable firefox firefox-l10n-pt-br firefox-l10n-en-gb"
@@ -28,14 +30,8 @@ atualizar()
 {
     mv "$PWD/Debian/sources.list" "$PWD/Debian/preferences" "/etc/apt/"
 
-    apt update
+    apt update && apt upgrade -y
     apt install apt-transport-https deborphan curl gnupg -y
-
-    curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add
-    curl -sL https://static.geogebra.org/linux/office@geogebra.org.gpg.key | apt-key add
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-
-    apt upgrade -y
 }
 
 ## Instalar básico
@@ -97,6 +93,18 @@ programas()
     fi
 }
 
+## Programas de 3º da source.list
+programas_terceiros()
+{
+
+    curl -sL "https://packagecloud.io/AtomEditor/atom/gpgkey" | apt-key add -
+    curl -sL "https://static.geogebra.org/linux/office@geogebra.org.gpg.key" | apt-key add -
+    curl "https://packages.microsoft.com/keys/microsoft.asc" | apt-key add -
+
+    apt update
+    $APT $PROGRAMAS_TERCEIROS
+}
+
 ## Configuração final
 confsys()
 {
@@ -113,16 +121,15 @@ if [[ "$EUID" -eq 0 ]];
 then
     printf "Iniciando...\n"
     sleep 3
-    printf %b "Instalando programas para o funcionamento do sistema
-            Esse processo pode demorar alguns minutos\n"
-    (
-        atualizar
-        essencial
-        interface
-        fontes
-        programas
-        confsys
-    ) 2>pos_debian.log 1>/dev/null
+    printf %b "Instalando programas para o funcionamento do sistema\n"
+    printf %b "Esse processo pode demorar alguns minutos\n"
+
+    atualizar $LOG
+    essencial $LOG
+    interface $LOG
+    fontes $LOG
+    programas $LOG
+    confsys $LOG
 else
     printf %b "Necessita ser root para executar o script.\nAbortando..."
     exit
