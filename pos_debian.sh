@@ -28,10 +28,14 @@ atualizar()
 {
     mv "$PWD/Debian/sources.list" "$PWD/Debian/preferences" "/etc/apt/"
 
-    apt update && apt upgrade -y
+    apt update
     apt install apt-transport-https deborphan curl gnupg -y
+
     curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add
     curl -sL https://static.geogebra.org/linux/office@geogebra.org.gpg.key | apt-key add
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+
+    apt upgrade -y
 }
 
 ## Instalar básico
