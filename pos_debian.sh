@@ -13,10 +13,11 @@
 ## Variaveis
 APT="apt install -y --no-install-suggests"
 ERRO="printf %b 'Ops...\nAlgo não saiu como esperado\n'"
-LOG="2>pos_debian.log 1>/dev/null"
+LOG="&>pos_debian.log"
 
 ## Programas a serem instalados
-ESSENCIAL="xorg mtp-tools jmtpfs pulseaudio pavucontrol"
+
+ESSENCIAL="apt-transport-https deborphan curl gnupg xorg mtp-tools jmtpfs pulseaudio pavucontrol"
 INTERFACE="openbox thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch plank"
 FONTES="ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family"
 PROGRAMAS_BASICOS="kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
@@ -31,7 +32,6 @@ atualizar()
     mv "$PWD/Debian/sources.list" "$PWD/Debian/preferences" "/etc/apt/"
 
     apt update && apt upgrade -y
-    apt install apt-transport-https deborphan curl gnupg -y
 }
 
 ## Instalar básico
@@ -99,7 +99,7 @@ programas_terceiros()
 
     curl -sL "https://packagecloud.io/AtomEditor/atom/gpgkey" | apt-key add -
     curl -sL "https://static.geogebra.org/linux/office@geogebra.org.gpg.key" | apt-key add -
-    curl "https://packages.microsoft.com/keys/microsoft.asc" | apt-key add -
+    curl -sL "https://packages.microsoft.com/keys/microsoft.asc" | apt-key add -
 
     apt update
     $APT $PROGRAMAS_TERCEIROS
@@ -112,26 +112,28 @@ confsys()
     mv -u "$PWD/fonts/*" "/usr/share/fonts/"
     fc-cache "/usr/share/fonts/"
 
-    apt autoremove && apt autoclean
+    apt autoremove -y && apt autoclean
 	apt list --installed | egrep lightdm && systemctl enable lightdm
-    apt update && apt install -f
+    apt update && apt install -f -y
 }
 
 if [[ "$EUID" -eq 0 ]];
 then
     printf "Iniciando...\n"
-    sleep 3
     printf %b "Instalando programas para o funcionamento do sistema\n"
-    printf %b "Esse processo pode demorar alguns minutos\n"
-
-    atualizar $LOG
-    essencial $LOG
-    interface $LOG
-    fontes $LOG
-    programas $LOG
-    confsys $LOG
+    printf %b "Esse processo pode demorar alguns minutos\n\n"
+    sleep 3
+    
+    (
+        atualizar
+        essencial
+        interface
+        fontes
+        programas
+        confsys
+    ) $LOG
 else
-    printf %b "Necessita ser root para executar o script.\nAbortando..."
+    printf %b "Necessita ser root para executar o script.\nAbortando...\n"
     exit
 fi
 

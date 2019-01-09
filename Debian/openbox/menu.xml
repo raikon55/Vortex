@@ -4,9 +4,9 @@
     <menu id="root-menu" label="Menu">
 
         <separator label="Menu"/>
-        <item label="Terminator">
+        <item label="Terminal">
 			<action name="Execute">
-				<command>terminator</command>
+				<command>guake</command>
 			</action>
 		</item>
 		<item label="File Manager">
@@ -16,7 +16,7 @@
         </item>
 
     <menu id="apps-accessories-menu" label="Acessories">
-        <item label="Applicantion Finder">
+        <item label="Application Finder">
             <action name="Execute">
                 <command>xfce4-appfinder</command>
             </action>
@@ -50,9 +50,9 @@
             </action>
         </item>
 <!--    <item label="Thunderbird">
-           		 <action name="Execute">
-                		<command>thunderbird</command>
-            		</action>
+			<action name="Execute">
+				<command>thunderbird</command>
+			</action>
         </item> -->
         <item label="Telegram">
 			<action name="Execute">
@@ -69,7 +69,7 @@
         </item>
         <item label="Eclipse">
             <action name="Execute">
-                <command>/opt/eclipse/eclipse</command>
+                <command>eclipse</command>
             </action>
         </item>
         <item label="Meld">
@@ -77,11 +77,11 @@
                 <command>meld</command>
             </action>
         </item>
-<!--        <item label="Pycharm">
-            <action name="Execute">
-                <command>pycharm</command>
-            </action>
-        </item> -->
+		<item label="VS Code">
+			<action name="Execute">
+				<command>code</command>
+			</action>
+		</item>
     </menu>
 
     <menu id="apps-office-menu" label="Office">

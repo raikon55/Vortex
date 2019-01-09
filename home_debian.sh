@@ -33,12 +33,12 @@ eclipse()
     # Pegar a versão mais recente do eclipse
     LINK="eclipse.c3sl.ufpr.br/technology/epp/downloads/release"
     [[ $(curl -s "eclipse.c3sl.ufpr.br/technology/epp/downloads/release/") =~ 20[0-9]{2}-[0-9]{2} ]] && VERSAO=$BASH_REMATCH
-    NOME="$LINK/$VERSAO/R/eclipse-cpp-$VERSAO-linux-gtk-$(arch).tar.gz"
+    NOME="eclipse-cpp-$VERSAO-linux-gtk-$(arch).tar.gz"
 
     # Baixar e instalar o eclipse em $HOME/Documentos
     curl -s --connect-timeout 15 --output "$NOME" "$LINK/$VERSAO/R/$NOME"
 
-    mkdir "$HOME/Documentos/Eclipse"
+    mkdir -p "$HOME/Documentos/Eclipse"
     tar -zxf "$NOME" -C "$HOME/Documentos/Eclipse"
 }
 
@@ -49,7 +49,7 @@ eclipse()
 #    curl $LOGISIM --output "logisim.jar"
 #}
 
-if [[ "$EUID" -eq 0]];
+if [[ "$EUID" -eq 0 ]];
 then
     printf "Não execute este script como root..."
     exit 1
