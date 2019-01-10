@@ -12,17 +12,15 @@
 
 ## Variaveis
 APT="apt install -y --no-install-suggests"
-ERRO="printf %b 'Ops...\nAlgo não saiu como esperado\n'"
-LOG="&>pos_debian.log"
+ERRO="echo -e 'Ops...\nAlgo não saiu como esperado\n'"
 
 ## Programas a serem instalados
-
 ESSENCIAL="apt-transport-https deborphan curl gnupg xorg mtp-tools jmtpfs pulseaudio pavucontrol"
-INTERFACE="openbox thunar thunar-volman lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch plank"
+INTERFACE="openbox lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch scrot plank"
 FONTES="ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family"
-PROGRAMAS_BASICOS="kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
+PROGRAMAS_BASICOS="galculator gthumb vlc kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
 PROGRAMAS_TERCEIROS="geogebra-classic atom code"
-XFCE4="xfce4-notes xfce4-appfinder"
+XFCE4="xfce4-notes xfce4-appfinder thunar thunar-volman"
 LIBREOFFICE="libreoffice-writer libreoffice-calc --no-install-recommends"
 FIREFOX="-t unstable firefox firefox-l10n-pt-br firefox-l10n-en-gb"
 
@@ -101,6 +99,7 @@ programas_terceiros()
     curl -sL "https://static.geogebra.org/linux/office@geogebra.org.gpg.key" | apt-key add -
     curl -sL "https://packages.microsoft.com/keys/microsoft.asc" | apt-key add -
 
+    sed -i '20,27s/^#\ /\ /' "/etc/apt/sources.list"
     apt update
     $APT $PROGRAMAS_TERCEIROS
 }
@@ -124,14 +123,13 @@ then
     printf %b "Esse processo pode demorar alguns minutos\n\n"
     sleep 3
     
-    (
-        atualizar
-        essencial
-        interface
-        fontes
-        programas
-        confsys
-    ) $LOG
+    atualizar
+    essencial
+    interface
+    fontes
+    programas
+    programas_terceiros
+    confsys
 else
     printf %b "Necessita ser root para executar o script.\nAbortando...\n"
     exit
