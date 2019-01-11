@@ -15,7 +15,7 @@ APT="apt install -y --no-install-suggests"
 ERRO="echo -e 'Ops...\nAlgo não saiu como esperado\n'"
 
 ## Programas a serem instalados
-ESSENCIAL="apt-transport-https deborphan curl gnupg xorg mtp-tools jmtpfs pulseaudio pavucontrol"
+ESSENCIAL="apt-transport-https network-manager deborphan curl gnupg xorg mtp-tools jmtpfs pulseaudio pavucontrol"
 INTERFACE="openbox lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch scrot plank"
 FONTES="ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family"
 PROGRAMAS_BASICOS="galculator gthumb vlc kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
@@ -107,13 +107,12 @@ programas_terceiros()
 ## Configuração final
 confsys()
 {
-    mv -u "$PWD/icons/*" "/usr/share/icons/"
-    mv -u "$PWD/fonts/*" "/usr/share/fonts/"
-    fc-cache "/usr/share/fonts/"
+    mv -u "$PWD/icons/" "/usr/share/"
+    mv -u "$PWD/fonts/" "/usr/local/share/fonts/"
+    fc-cache "/usr/local/share/fonts/"
 
     apt autoremove -y && apt autoclean
 	apt list --installed | egrep lightdm && systemctl enable lightdm
-    apt update && apt install -f -y
 }
 
 if [[ "$EUID" -eq 0 ]];

@@ -56,10 +56,10 @@
     </resize>
 
     <margins>
-        <top>5</top>
-        <bottom>5</bottom>
-        <left>5</left>
-        <right>5</right>
+        <top>2</top>
+        <bottom>2</bottom>
+        <left>2</left>
+        <right>2</right>
     </margins>
 
     <keyboard>

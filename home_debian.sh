@@ -37,7 +37,6 @@ eclipse()
 
     # Baixar e instalar o eclipse em $HOME/Documentos
     curl -s --connect-timeout 15 --output "$NOME" "$LINK/$VERSAO/R/$NOME"
-
     mkdir -p "$HOME/Documentos/Eclipse"
     tar -zxf "$NOME" -C "$HOME/Documentos/Eclipse"
 }

@@ -122,7 +122,7 @@
         </item>
         <item label="Geogebra">
             <action name="Execute">
-                <command>geogebra</command>
+                <command>geogebra-classica</command>
             </action>
         </item>
 	</menu>
@@ -147,9 +147,9 @@
 				<command>nitrogen</command>
 			</action>
 		</item>
-        <item label="Copmton">
+        <item label="Compton">
             <action name="Execute">
-                <command>copmton-conf</command>
+                <command>compton-conf</command>
             </action>
         </item>
 		<item label="Plank Manager">
@@ -162,14 +162,14 @@
 				<command>lxappearance</command>
 			</action>
 		</item>
+		<item label="OpenBox Manager">
+			<action name="Execute">
+				<command>obconf</command>
+			</action>
+		</item>
 	</menu>
 
     <menu id="logoff-menu" label="Logoff">
-		<item label="Desligar...">
-			<action name="Execute">
-				<command>oblogout</command>
-			</action>
-		</item>
 		<item label="Encerrar processo">
 			<action name="Execute">
 				<command>xkill</command>
