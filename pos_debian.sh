@@ -17,10 +17,10 @@ ERRO="echo -e 'Ops...\nAlgo não saiu como esperado\n'"
 ## Programas a serem instalados
 ESSENCIAL="apt-transport-https network-manager deborphan curl gnupg xorg mtp-tools jmtpfs pulseaudio pavucontrol"
 INTERFACE="openbox lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch scrot plank"
-FONTES="ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family"
-PROGRAMAS_BASICOS="galculator gthumb vlc kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
+FONTES="fonts-cantarell ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family"
+PROGRAMAS_BASICOS="htop volumeicon-alsa galculator redshift gthumb vlc kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
 PROGRAMAS_TERCEIROS="geogebra-classic atom code"
-XFCE4="xfce4-notes xfce4-appfinder thunar thunar-volman"
+XFCE4="xfce4-notes xfce4-appfinder xfce4-panel thunar thunar-volman"
 LIBREOFFICE="libreoffice-writer libreoffice-calc --no-install-recommends"
 FIREFOX="-t unstable firefox firefox-l10n-pt-br firefox-l10n-en-gb"
 
@@ -32,64 +32,14 @@ atualizar()
     apt update && apt upgrade -y
 }
 
-## Instalar básico
-essencial()
-{
-    $APT $ESSENCIAL
-
-	if [[ $?  -eq "0" ]];
-    then
-        sleep 1
-   	else
-       	$ERRO
-       	exit 1
-   	fi
-}
-
-## Instalar Openbox
+## Instalar os programas necessários
 interface()
 {
-	$APT $INTERFACE
-
-	if [[ $? -eq "0" ]];
-    then
-        sleep 1
-   	else
-       	$ERRO
-       	exit 1
-   	fi
-}
-
-## Instalar fontes
-fontes()
-{
-    $APT $FONTES
-
-    if [[ $? -eq "0" ]];
-    then
-        sleep 1
-	else
-    	$ERRO
-    	exit 1
-	fi
-}
-
-## Instalar programas
-programas()
-{
-    $APT $PROGRAMAS_BASICOS
-    $APT $XFCE4
+    $APT $ESSENCIAL $INTERFACE $FONTES $PROGRAMAS_BASICOS $XFCE4
     $APT $LIBREOFFICE
     $APT $FIREFOX
-
-	if [[ $? -eq "0" ]];
-    then
-		sleep 1
-    else
-        $ERRO
-        exit 1
-    fi
 }
+
 
 ## Programas de 3º da source.list
 programas_terceiros()
@@ -123,11 +73,7 @@ then
     sleep 3
     
     atualizar
-    essencial
     interface
-    fontes
-    programas
-    programas_terceiros
     confsys
 else
     printf %b "Necessita ser root para executar o script.\nAbortando...\n"
