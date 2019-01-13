@@ -67,7 +67,7 @@ ip6tables -A INPUT -p udp --dport 22 -j DROP
 
 # tor
 # Permitir conexão tor
-iptables -A INPUT -i $WIFI -p tcp --dport 51413 -j ACCEPT
+#iptables -A INPUT -i $WIFI -p tcp --dport 51413 -j ACCEPT
 
 # HTTP
 # Permitir conexão com internet
