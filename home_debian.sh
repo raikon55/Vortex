@@ -13,12 +13,18 @@
 ## Mover os arquivos de configuração para seus devidos lugares
 conf()
 {
+    CONF_FILES="$PWD/Debian/config"
+
     mkdir -p "$HOME/.local/share" "$HOME/.config"
 
     # Mover os arquivos de configuração para os locais certos
-    mv "$PWD/Debian/config/bashrc" "$HOME/.bashrc"
-    mv "$PWD/Debian/config/firewall_netfilter.sh" "$HOME/.local/share"
-    mv -u "$PWD/Debian/config/" "$PWD/Debian/openbox" "$HOME/.config/"
+    ls $CONF_FILES | egrep "*rc" | while read RC ;
+    do
+        mv "$CONF_FILES/$RC" "$HOME/.${RC}"
+    done
+
+    mv "$CONF_FILES/vim" "$HOME/.vim" && mkdir "$HOME/.vim/temp"
+    mv "$PWD/$CONF_FILES/firewall_netfilter.sh" "$HOME/.local/share"
 
     # Ler os arquivos conky no diretorio, renomea-los e move-los para a home
     ls $PWD | egrep "Conky" | while read ANTIGO ;
@@ -32,7 +38,7 @@ eclipse()
 {
     # Pegar a versão mais recente do eclipse
     LINK="eclipse.c3sl.ufpr.br/technology/epp/downloads/release"
-    [[ $(curl -s "eclipse.c3sl.ufpr.br/technology/epp/downloads/release/") =~ 20[0-9]{2}-[0-9]{2} ]] && VERSAO=$BASH_REMATCH
+    [[ $(curl -s "$LINK") =~ 20[0-9]{2}-[0-9]{2} ]] && VERSAO=$BASH_REMATCH
     NOME="eclipse-cpp-$VERSAO-linux-gtk-$(arch).tar.gz"
 
     # Baixar e instalar o eclipse em $HOME/Documentos

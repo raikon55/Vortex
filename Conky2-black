@@ -43,16 +43,14 @@ ${font BRINGTHANOIZE:size=20}${color1}KEYBOARD SHORTCUTS${font}
 ${font Cantarell:size=11}${color2}
 Super + F${goto 120}Firefox
 Super + A${goto 120}File manager
-Super + V${goto 120}Vim
 Super + E${goto 120}Text editor
-Super + T${goto 120}Libreoffice
 Super + C${goto 120}Calculator
+Super + L${goto 120}Libreoffice
+Super + V${goto 120}Atom
+Super + H${goto 120}VS Code
 Super + N${goto 120}Eclipse
+Super + Q${goto 120}Telegram
 Super + M${goto 120}Free Plane
 Super + K${goto 120}Kill process
-Alt + W${goto 120}Maximize window
-Alt + F4${goto 120}Close window
-Alt + Tab${goto 120}Next window
-Alt + Esc${goto 120}Previous window
-#F10${goto 120}Logout options
+Alt + {1, 6}${goto 120}Resize window
 F12${goto 120}Terminal

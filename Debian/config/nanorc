@@ -4,9 +4,7 @@
 # No licensed
 
 #### HIGHLIGHT SYNTAX ####
-include ~/.config/nano/syntax/c.nanorc
-include ~/.config/nano/syntax/python.nanorc
-include ~/.config/nano/syntax/sh.nanorc
+include /usr/share/nano/*
 
 #### SET ####
 set autoindent

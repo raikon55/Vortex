@@ -3,17 +3,17 @@
 
     <menu id="root-menu" label="Menu">
 
-        <separator label="Menu"/>
-        <item label="Terminal">
-			<action name="Execute">
-				<command>guake</command>
-			</action>
-		</item>
-		<item label="File Manager">
-			<action name="Execute">
-				<command>thunar</command>
-			</action>
-        </item>
+	<separator label="Menu"/>
+	<item label="Terminal">
+		<action name="Execute">
+			<command>guake</command>
+		</action>
+	</item>
+	<item label="File Manager">
+		<action name="Execute">
+			<command>thunar</command>
+		</action>
+	</item>
 
     <menu id="apps-accessories-menu" label="Acessories">
         <item label="Application Finder">
@@ -122,7 +122,7 @@
         </item>
         <item label="Geogebra">
             <action name="Execute">
-                <command>geogebra-classica</command>
+                <command>geogebra-classic</command>
             </action>
         </item>
 	</menu>

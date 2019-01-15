@@ -6,21 +6,24 @@ nitrogen --restore &
 
 ## Panels
 plank &
-tint2 &
+xfce4-panel &
 
 ## Composite
-compton --backend glx --paint-on-overlay --vsync opengl-swc &
+compton --backend glx --paint-on-overlay --vsync opengl-swc -b
 
 ## Conky
-conky -c $HOME/.conky1-white &
-conky -c $HOME/.conky2-black &
-conky -c $HOME/.conky3-simple &
+conky -c $HOME/.conky1-white -d
+conky -c $HOME/.conky2-black -d
+conky -c $HOME/.conky3-simple -d
 
-## Network applet
-nm-applet --no-agent &
+## Redshift
+redshift &
 
 ## Notes
 xfce4-notes &
 
 ## Terminal
 guake &
+
+## Volume icon
+volumeicon &
