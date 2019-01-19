@@ -13,52 +13,47 @@
 ## Mover os arquivos de configuração para seus devidos lugares
 conf()
 {
-    CONF_FILES="$PWD/Debian/config"
-
-    mkdir -p "$HOME/.local/share" "$HOME/.config"
-
-    # Mover os arquivos de configuração para os locais certos
-    ls $CONF_FILES | egrep "*rc" | while read RC ;
-    do
-        mv "$CONF_FILES/$RC" "$HOME/.${RC}"
-    done
-
-    mv "$CONF_FILES/vim" "$HOME/.vim" && mkdir "$HOME/.vim/temp"
-    mv "$PWD/$CONF_FILES/firewall_netfilter.sh" "$HOME/.local/share"
-
-    # Ler os arquivos conky no diretorio, renomea-los e move-los para a home
-    ls $PWD | egrep "Conky" | while read ANTIGO ;
-    do
-        NOVO=$(echo .${ANTIGO} | tr 'A-Z' 'a-z')
-        mv "$PWD/$ANTIGO" "$HOME/$NOVO"
-    done
+  local _conf_files _antigo _rc _novo
+  _conf_files="$PWD/Debian/config"
+  
+  mkdir -p "$HOME/.local/share" "$HOME/.config"
+  
+  # Mover os arquivos de configuração para os locais certos
+  ls "$_conf_files" | grep -E "rc" | while read _rc ;
+  do
+    mv "$_conf_files/$_rc" "$HOME/.${_rc}"
+  done
+  
+  mv "$_conf_files/vim" "$HOME/.vim" && mkdir "$HOME/.vim/temp"
+  mv "$PWD/$_conf_files/firewall_netfilter.sh" "$HOME/.local/share"
+  
+  # Ler os arquivos conky no diretorio, renomea-los e move-los para a home
+  ls $PWD | grep -E "Conky" | while read _antigo ;
+  do
+    _novo=$(echo .${_antigo} | tr 'A-Z' 'a-z')
+    mv "$PWD/$_antigo" "$HOME/$_novo"
+  done
 }
 
 eclipse()
 {
-    # Pegar a versão mais recente do eclipse
-    LINK="eclipse.c3sl.ufpr.br/technology/epp/downloads/release"
-    [[ $(curl -s "$LINK") =~ 20[0-9]{2}-[0-9]{2} ]] && VERSAO=$BASH_REMATCH
-    NOME="eclipse-cpp-$VERSAO-linux-gtk-$(arch).tar.gz"
-
-    # Baixar e instalar o eclipse em $HOME/Documentos
-    curl -s --connect-timeout 15 --output "$NOME" "$LINK/$VERSAO/R/$NOME"
-    mkdir -p "$HOME/Documentos/Eclipse"
-    tar -zxf "$NOME" -C "$HOME/Documentos/Eclipse"
+  local _link _versao _nome
+  # Pegar a versão mais recente do eclipse
+  _link="eclipse.c3sl.ufpr.br/technology/epp/downloads/release"
+  [[ $(curl -s "$_link") =~ 20[0-9]{2}-[0-9]{2} ]] && _versao=$BASH_REMATCH
+  _nome="eclipse-cpp-$_versao-linux-gtk-$(arch).tar.gz"
+  
+  # Baixar e instalar o eclipse em $HOME/Documentos
+  curl -s --connect-timeout 15 --output "$NOME" "$_link/$_versao/R/$_nome"
+  mkdir -p "$HOME/Documentos/Eclipse"
+  tar -zxf "$_nome" -C "$HOME/Documentos/Eclipse"
 }
-
-# TO DO
-#ferramentas()
-#{
-#    LOGISIM="ufpr.dl.sourceforge.net/project/circuit/2.7.x/2.7.1/logisim-generic-2.7.1.jar"
-#    curl $LOGISIM --output "logisim.jar"
-#}
 
 if [[ "$EUID" -eq 0 ]];
 then
-    printf "Não execute este script como root..."
-    exit 1
+  printf "Não execute este script como root..."
+  exit 1
 else
-    printf "Configurando a home do $USER"
-    conf && eclipse
+  printf %b "Configurando a home do $USER"
+  conf && eclipse
 fi

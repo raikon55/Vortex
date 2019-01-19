@@ -26,7 +26,7 @@ set hlsearch
 
 " BACKUP
 set backup " enable backup file
-set backupdir=~/.vim/temp,/temp " directory to save
-set backupskip=/temp/*
-set directory=~/.vim/temp,/temp " directory to save
+set backupdir=~/.vim/temp " directory to save
+set backupskip=~/.vim/temp/*
+set directory=~/.vim/temp " directory to save
 set writebackup " enable write backup
