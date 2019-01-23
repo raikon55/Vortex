@@ -46,7 +46,6 @@ Super + A${goto 120}File manager
 Super + E${goto 120}Text editor
 Super + C${goto 120}Calculator
 Super + L${goto 120}Libreoffice
-Super + V${goto 120}Atom
 Super + H${goto 120}VS Code
 Super + N${goto 120}Eclipse
 Super + Q${goto 120}Telegram

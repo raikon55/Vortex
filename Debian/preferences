@@ -13,7 +13,3 @@ Pin-Priority: 300
 Package: *
 Pin: release o=vscode stable
 Pin-Priority: 300
-
-Package: *
-Pin: release o=packagecloud.io/AtomEditor/atom
-Pin-Priority: 300

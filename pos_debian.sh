@@ -27,7 +27,6 @@ FIREFOX="-t unstable firefox firefox-l10n-pt-br firefox-l10n-en-gb"
 atualizar()
 {
   mv "$PWD/Debian/sources.list" "$PWD/Debian/preferences" "/etc/apt/"
-  
   apt update && apt upgrade -y
 }
 
@@ -42,11 +41,10 @@ interface()
 ## Programas de 3º da source.list
 programas_terceiros()
 {
-  curl -sL "https://packagecloud.io/AtomEditor/atom/gpgkey" | apt-key add -
   curl -sL "https://static.geogebra.org/linux/office@geogebra.org.gpg.key" | apt-key add -
   curl -sL "https://packages.microsoft.com/keys/microsoft.asc" | apt-key add -
   
-  sed -i '20,27s/^#\ /\ /' "/etc/apt/sources.list"
+  sed -i '16,19s/^#\ /\ /' "/etc/apt/sources.list"
   apt update
   $APT "$PROGRAMAS_TERCEIROS"
 }

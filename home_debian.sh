@@ -24,7 +24,7 @@ conf()
     mv "$_conf_files/$_rc" "$HOME/.${_rc}"
   done
   
-  mv "$_conf_files/vim" "$HOME/.vim" && mkdir "$HOME/.vim/temp"
+  mv "$_conf_files/vim" "$HOME/.vim" && mkdir -p "$HOME/.vim/temp"
   mv "$PWD/$_conf_files/firewall_netfilter.sh" "$HOME/.local/share"
   
   # Ler os arquivos conky no diretorio, renomea-los e move-los para a home

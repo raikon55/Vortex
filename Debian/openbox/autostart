@@ -12,9 +12,9 @@ xfce4-panel &
 compton --backend glx --paint-on-overlay --vsync opengl-swc -b
 
 ## Conky
-conky -c $HOME/.conky1-white -d
-conky -c $HOME/.conky2-black -d
-conky -c $HOME/.conky3-simple -d
+conky -c $HOME/.conky1 -d
+conky -c $HOME/.conky2 -d
+conky -c $HOME/.conky3 -d
 
 ## Redshift
 redshift &

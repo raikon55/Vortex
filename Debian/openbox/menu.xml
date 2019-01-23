@@ -62,11 +62,6 @@
     </menu>
 
     <menu id="apps-devolveper" label="Desenvolvimento">
-        <item label="Atom">
-            <action name="Execute">
-                <command>atom</command>
-            </action>
-        </item>
         <item label="Eclipse">
             <action name="Execute">
                 <command>eclipse</command>
@@ -166,14 +161,6 @@
 			<action name="Execute">
 				<command>obconf</command>
 			</action>
-		</item>
-	</menu>
-
-    <menu id="logoff-menu" label="Logoff">
-		<item label="Encerrar processo">
-			<action name="Execute">
-				<command>xkill</command>
-            </action>
 		</item>
 	</menu>
 </openbox_menu>
