@@ -2,6 +2,10 @@ Package: *
 Pin: release a=testing
 Pin-Priority: 900
 
+Package: firefox firefox-l10n-pt-br firefox-l10n-en-gb
+Pin: release a=unstable
+Pin-Priority: 800
+
 Package: *
 Pin: release a=unstable
 Pin-Priority: 100
@@ -13,3 +17,4 @@ Pin-Priority: 300
 Package: *
 Pin: release o=vscode stable
 Pin-Priority: 300
+

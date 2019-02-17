@@ -51,5 +51,5 @@ Super + N${goto 120}Eclipse
 Super + Q${goto 120}Telegram
 Super + M${goto 120}Free Plane
 Super + K${goto 120}Kill process
-Alt + {1, 6}${goto 120}Resize window
+Super + {1, 6}${goto 120}Resize window
 F12${goto 120}Terminal
