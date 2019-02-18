@@ -21,22 +21,26 @@
                 <command>xfce4-appfinder</command>
             </action>
         </item>
+<!--
 		<item label="Text editor">
 			<action name="Execute">
-				<command>kate</command>
+				<command></command>
 			</action>
 		</item>
-		<item label="Notes">
+-->
+        <item label="Notes">
 			<action name="Execute">
 				<command>xfce4-notes</command>
 			</action>
 		</item>
-		<item label="VirtualBox">
+<!--
+        <item label="VirtualBox">
 			<action name="Execute">
 				<command>virtualbox</command>
 			</action>
 		</item>
-	</menu>
+-->
+    </menu>
 
     <menu id="apps-internet-menu" label="Internet">
 		<item label="Firefox">
@@ -49,11 +53,13 @@
                 <command>firefox --safe-mode --private-window</command>
             </action>
         </item>
-<!--    <item label="Thunderbird">
+<!--   
+        <item label="Thunderbird">
 			<action name="Execute">
 				<command>thunderbird</command>
 			</action>
-        </item> -->
+        </item> 
+-->
         <item label="Telegram">
 			<action name="Execute">
                 <command>telegram-desktop</command>
@@ -105,11 +111,13 @@
                 <command>galculator</command>
             </action>
         </item>
-<!--	   <item label="LaTex">
+<!--	   
+        <item label="LaTex">
 			<action name="Execute">
 				<command></command>
 			</action>
-		</item> -->
+        </item>
+-->
 	    <item label="Evince">
 			<action name="Execute">
         		<command>evince</command>
@@ -161,6 +169,19 @@
 			<action name="Execute">
 				<command>obconf</command>
 			</action>
+		</item>
+	</menu>
+
+    <menu id="logoff-menu" label="Logoff">
+        <item label="Encerrar...">
+                <action name="Execute">
+                        <command>obsession-logout</commamnd>
+                </action>
+        </item>
+		<item label="Encerrar processo">
+			<action name="Execute">
+				<command>xkill</command>
+            </action>
 		</item>
 	</menu>
 </openbox_menu>
