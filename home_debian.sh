@@ -10,6 +10,8 @@
 #   distribuição GNU/Linux Debian   #
 #####################################
 
+CURL="curl -s --connect-timeout 15 --output"
+
 ## Mover os arquivos de configuração para seus devidos lugares
 conf()
 {
@@ -35,6 +37,14 @@ conf()
   done
 }
 
+wallpaper()
+{
+  local _wallpaper="https://memeworld.funnyjunk.com/comments/I+have+like+500+or+more+wallpapers+in+my+wg+_cfeaa5d8714f2385d56d1562d016130a.jpg"
+
+  $CURL "$HOME/Imagens/wallpaper.jpg" $_wallpaper
+  nitrogen --set-auto "$HOME/Imagens/wallpaper.jpg"
+}
+
 eclipse()
 {
   local _link _versao _nome
@@ -44,7 +54,7 @@ eclipse()
   _nome="eclipse-cpp-$_versao-linux-gtk-$(arch).tar.gz"
   
   # Baixar e instalar o eclipse em $HOME/Documentos
-  curl -s --connect-timeout 15 --output "$NOME" "$_link/$_versao/R/$_nome"
+  $CURL "$_nome" "$_link/$_versao/R/$_nome"
   mkdir -p "$HOME/Documentos/Eclipse"
   tar -zxf "$_nome" -C "$HOME/Documentos/Eclipse"
 }
