@@ -207,7 +207,7 @@
     </keybind>
     <keybind key="F12">
       <action name="Execute">
-        <command>guake</command>
+        <command>terminator</command>
       </action>
     </keybind>
     <keybind key="W-a">
@@ -230,11 +230,13 @@
         <command>eclipse</command>
       </action>
     </keybind>
+    <!--
     <keybind key="W-e">
       <action name="Execute">
         <command></command>
       </action>
     </keybind>
+    -->
     <keybind key="W-l">
       <action name="Execute">
         <command>libreoffice</command>

@@ -48,7 +48,7 @@ ${font Cantarell:size=9}${color2}${uptime_short}${font}
 # Updates ${offset 17}${texeci 180 pacman -Qu | wc -l}
 ## Debian-like
 ${color2}${font Cantarell:size=12}${exec uname -n}
-${font Cantarell:size=10}Packages${goto 75}${execi 180 apt list --installed | wc -l}
-Updates${goto 75}${execi 180 apt list --upgradable | wc -l}
+${font Cantarell:size=10}Packages${goto 75}${execi 180 apt list --installed | head -n -1 | wc -l}
+Updates${goto 75}${execi 180 apt list --upgradable | head -n -1 | wc -l}
 Root${goto 75}${fs_used /}
 Home${goto 75}${fs_used /home/hitchhiker}

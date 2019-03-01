@@ -6,7 +6,7 @@
 	<separator label="Menu"/>
 	<item label="Terminal">
 		<action name="Execute">
-			<command>guake</command>
+			<command>terminator</command>
 		</action>
 	</item>
 	<item label="File Manager">

@@ -43,7 +43,7 @@ ${font BRINGTHANOIZE:size=20}${color1}KEYBOARD SHORTCUTS${font}
 ${font Cantarell:size=11}${color2}
 Super + F${goto 120}Firefox
 Super + A${goto 120}File manager
-Super + E${goto 120}Text editor
+#Super + E${goto 120}Text editor
 Super + C${goto 120}Calculator
 Super + L${goto 120}Libreoffice
 Super + H${goto 120}VS Code
