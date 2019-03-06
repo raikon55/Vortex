@@ -14,13 +14,20 @@
 APT="apt install -y --no-install-suggests"
 
 ## Programas a serem instalados
-ESSENCIAL="apt-transport-https network-manager deborphan curl gnupg xorg mtp-tools jmtpfs pulseaudio pavucontrol"
-INTERFACE="openbox lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch scrot plank"
+ESSENCIAL="apt-transport-https network-manager curl gnupg xorg mtp-tools jmtpfs pulseaudio pavucontrol bluetooth gdb"
+
+INTERFACE="openbox lxappearance lightdm lightdm-gtk-greeter arc-theme bc compton nitrogen neofetch scrot plank arandr"
+
 FONTES="fonts-cantarell ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-ubuntu-font-family"
-PROGRAMAS_BASICOS="htop oxygencursor volumeicon-alsa galculator redshift gthumb vlc kate meld evince freeplane vim conky guake bash-completion compton-conf telegram-desktop"
-PROGRAMAS_TERCEIROS="geogebra-classic atom code"
-XFCE4="xfce4-notes xfce4-appfinder xfce4-panel xfce4-netload-plugin thunar thunar-volman"
-LIBREOFFICE="libreoffice-writer libreoffice-calc --no-install-recommends"
+
+PROGRAMAS_BASICOS="htop oxygencursor volumeicon-alsa galculator redshift gthumb vlc meld evince freeplane vim conky terminator bash-completion compton-conf telegram-desktop wicd wicd-curses docker.io gvfs-backends"
+
+PROGRAMAS_TERCEIROS="geogebra-classic code"
+
+XFCE4="xfce4-notes xfce4-appfinder thunar thunar-volman"
+
+LIBREOFFICE="libreoffice-writer libreoffice-calc libreoffice-l10n-pt-br libreoffice-lightproof-pt-br libreoffice-gtk3 --no-install-recommends"
+
 FIREFOX="-t unstable firefox firefox-l10n-pt-br firefox-l10n-en-gb"
 
 ## Atualizar repositorios
