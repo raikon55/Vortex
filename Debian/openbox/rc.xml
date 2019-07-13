@@ -77,9 +77,10 @@
     </font>
   </theme>
   <desktops>
-    <number>1</number>
+    <number>2</number>
     <names>
       <name>Principal</name>
+      <name>Secundária</name>
     </names>
     <popupTime>875</popupTime>
   </desktops>
@@ -93,10 +94,10 @@
     </popupFixedPosition>
   </resize>
   <margins>
-    <top>2</top>
-    <bottom>2</bottom>
-    <left>2</left>
-    <right>2</right>
+    <top>0</top>
+    <bottom>0</bottom>
+    <left>0</left>
+    <right>0</right>
   </margins>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
@@ -198,6 +199,10 @@
         <height>50%</height>
         <width>50%</width>
       </action>
+    </keybind>
+    <!-- Resize window -->
+    <keybind key="W-R" action="Press">
+      <action name="Resize"/>
     </keybind>
     <!-- Keybinds for applications -->
     <keybind key="W-f">

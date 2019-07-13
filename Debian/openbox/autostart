@@ -1,8 +1,8 @@
 ## Layout Keyboard
-setxkbmap -model abnt2 -layout br -variant abnt2 &
+setxkbmap -model abnt2 -layout br -variant abnt2
 
 ## Wallpaper
-nitrogen --restore &
+nitrogen --restore
 
 ## Panels
 plank &
@@ -22,8 +22,8 @@ redshift &
 ## Notes
 xfce4-notes &
 
-## Terminal
-guake &
-
 ## Volume icon
 volumeicon &
+
+## Battery applet
+xfce4-power-manager

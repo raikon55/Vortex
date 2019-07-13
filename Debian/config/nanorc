@@ -1,12 +1,10 @@
 # Setup  nano
 # Created by Eduardo
-# 10/05/2018 00:31
-# No licensed
 
 #### HIGHLIGHT SYNTAX ####
 include /usr/share/nano/*
 
-#### SET ####
+#### Enable ####
 set autoindent
 set tabsize 4
 set tabstospaces
@@ -14,13 +12,17 @@ set matchbrackets "(<[{)>]}"
 set brackets ""')>]}"
 set linenumbers
 set constantshow
+set nohelp
+set multibuffer
+set speller "aspell -x -c"
+set softwrap
+set fill 80
 
-#### UNSET ####
+#### Disable ####
 unset positionlog
 unset casesensitive
 unset mouse
 unset quiet
-unset nohelp
 unset locking
 unset nonewlines
 unset suspend
