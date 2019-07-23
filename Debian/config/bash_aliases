@@ -1,0 +1,11 @@
+# ~./bash_aliases executed by ~/.bashrc
+# Don't put your custom aliases on .bashrc
+
+alias mars="java -jar $HOME/bin/mars-4.4.jar"
+alias logisim="java -jar $HOME/bin/logisim-2.7.1.jar"
+alias vcn="wine $HOME/bin/VCN.exe"
+alias eclipse="$HOME/Documentos/Eclipse/eclipse/eclipse -consolelog -debug"
+alias repast="$HOME/Documentos/Eclipse/eclipse_committers/eclipse -consolelog -debug"
+alias mv='mv -i'
+alias rm='rm -i'
+
