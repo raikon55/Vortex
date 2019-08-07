@@ -210,7 +210,7 @@
         <command>firefox</command>
       </action>
     </keybind>
-    <keybind key="F12">
+    <keybind key="C-A-t">
       <action name="Execute">
         <command>terminator</command>
       </action>

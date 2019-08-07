@@ -22,7 +22,6 @@ set fill 80
 unset positionlog
 unset casesensitive
 unset mouse
-unset quiet
 unset locking
 unset nonewlines
 unset suspend
