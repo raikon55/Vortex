@@ -18,7 +18,7 @@
 
 ############ REPOSITORIO TERCEIROS ################
 ## Geogebra
- deb http://www.geogebra.net/linux/ stable main
+# deb http://www.geogebra.net/linux/ stable main
 
 ## Visual Studio Code
- deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+# deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main

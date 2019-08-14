@@ -52,4 +52,4 @@ Super + Q${goto 120}Telegram
 Super + M${goto 120}Free Plane
 Super + K${goto 120}Kill process
 Super + {1, 6}${goto 120}Resize window
-F12${goto 120}Terminal
+Ctrl + Alt + T${goto 120}Terminal
