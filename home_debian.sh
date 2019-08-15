@@ -21,17 +21,18 @@ conf_home()
   [[ ! -d "$HOME/.local/share" ]] mkdir -p "$HOME/.local/share"
   [[ ! -d "$HOME/.config" ]] mkdir -p "$HOME/.config" 
   
-  for _rc in "$_conf_files"/*rc ;
+  for _rc in $(find $_config_files -name "*rc")
   do
-    mv "$_conf_files/$_rc" "$HOME/.${_rc##*/}"
+    mv "$_rc" "$HOME/.${_rc##*/}"
   done
 
-  mv "$PWD/$_conf_files/firewall_netfilter.sh" "$HOME/.local/share"
+  mv "$_conf_files/firewall_netfilter.sh" "$HOME/.local/share"
+  mv "$_config_files/{redshift.conf,youtube-dl}" "$HOME/.config"
 
   # Conky1 -> .conky1
-  for _antigo in Conky* ;
+  for _antigo in $(find . -name "Conky*")
   do
-    _novo=$(echo ."${_antigo}" | tr '[:upper:]' '[:lower:]')
+    _novo=$(echo ."${_antigo##*/}" | tr '[:upper:]' '[:lower:]')
     mv "$PWD/$_antigo" "$HOME/$_novo"
   done
 }
