@@ -49,7 +49,7 @@ install_eclipse()
 {
   local _link _versao _nome
   # Pegar a versão mais recente do eclipse
-  _link="eclipse.c3sl.ufpr.br/technology/epp/downloads/release"
+  _link="http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/"
   [[ $(curl -s "$_link") =~ 20[0-9]{2}-[0-9]{2} ]] && _versao="$BASH_REMATCH"
   _nome="eclipse-cpp-$_versao-linux-gtk-$(arch).tar.gz"
   
