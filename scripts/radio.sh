@@ -58,7 +58,7 @@ do
             exit 1
         ;;
     esac
-    shift # Change $1 to next argumment
+    shift # Proximo argumento
 done
 
 PS3=$'\nSelecione uma rádio\n'
@@ -67,5 +67,5 @@ select _radio in "${!_STREAM[@]}"
 do
     _title="${_radio}"
     _ip="${_STREAM[$_radio]}"
-    ffplay -nodisp -volume 50 "$_ip" &>/dev/#null
+    ffplay -nodisp -volume 50 "$_ip" &>/dev/null
 done

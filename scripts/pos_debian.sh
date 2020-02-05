@@ -9,7 +9,6 @@
 ## * Configura as fontes e os icones do sistema 
 #
 
-## Variaveis
 APT="apt install -y --no-install-suggests"
 
 ## Programas a serem instalados
@@ -21,7 +20,7 @@ INTERFACE="openbox lxappearance lightdm lightdm-gtk-greeter arc-theme bc \
 
 FONTES="fonts-cantarell ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu"
 
-PROGRAMAS_BASICOS="htop chromium volumeicon-alsa galculator redshift \
+PROGRAMAS_BASICOS="htop transmission volumeicon-alsa galculator redshift \
  gthumb vlc meld evince freeplane conky terminator bash-completion \
  compton-conf telegram-desktop wicd wicd-curses docker.io gvfs-backends \
  keepassxc"
@@ -35,53 +34,49 @@ LIBREOFFICE="libreoffice-writer libreoffice-calc libreoffice-l10n-pt-br \
 
 FIREFOX="-t unstable firefox firefox-l10n-pt-br"
 
-atualizar()
+
+alterar_sources_list()
 {
-  mv "$PWD/Debian/sources.list" "$PWD/Debian/preferences" "/etc/apt/"
-  apt update && apt upgrade -y
+    mv "$PWD/Debian/sources.list" "$PWD/Debian/preferences" "/etc/apt/"
+
+    curl -sL "https://static.geogebra.org/linux/office@geogebra.org.gpg.key" | apt-key add -
+    curl -sL "https://packages.microsoft.com/keys/microsoft.asc" | apt-key add -
+
+    sed -i '16,19s/^#\ /\ /' "/etc/apt/sources.list"
+    apt update
 }
 
 interface()
 {
-  $APT "$ESSENCIAL $INTERFACE $FONTES $PROGRAMAS_BASICOS $XFCE4"
-  $APT "$LIBREOFFICE"
-  $APT "$FIREFOX"
+    $APT "$ESSENCIAL $INTERFACE $FONTES $PROGRAMAS_BASICOS $XFCE4"
+    $APT "$LIBREOFFICE"
+    $APT "$FIREFOX"
+    $APT "$PROGRAMAS_TERCEIROS"
 }
 
-programas_terceiros()
+conf_final()
 {
-  curl -sL "https://static.geogebra.org/linux/office@geogebra.org.gpg.key" | apt-key add -
-  curl -sL "https://packages.microsoft.com/keys/microsoft.asc" | apt-key add -
-  
-  sed -i '16,19s/^#\ /\ /' "/etc/apt/sources.list"
-  apt update
-  $APT "$PROGRAMAS_TERCEIROS"
+    mv -u "$PWD/icons/" "/usr/share/"
+    mv -u "$PWD/fonts/" "/usr/local/share/fonts/"
+    fc-cache "/usr/local/share/fonts/"
+
+    apt autoremove -y && apt autoclean
+    apt list --installed | grep -E lightdm && systemctl enable lightdm
 }
 
-## Configuração final
-confsys()
-{
-  mv -u "$PWD/icons/" "/usr/share/"
-  mv -u "$PWD/fonts/" "/usr/local/share/fonts/"
-  fc-cache "/usr/local/share/fonts/"
-  
-  apt autoremove -y && apt autoclean
-  apt list --installed | grep -E lightdm && systemctl enable lightdm
-}
-
-if [[ "$EUID" -eq 0 ]];
+if [[ "$EUID" -eq 0 ]]
 then
-  printf "Iniciando...\n"
-  printf "Instalando programas para o funcionamento do sistema\n"
-  printf "Esse processo pode demorar alguns minutos\n\n"
-  sleep 3
+    printf "Iniciando...\n"
+    printf "Instalando programas para o funcionamento do sistema\n"
+    printf "Esse processo pode demorar alguns minutos\n\n"
+    sleep 1
   
-  atualizar
-  interface
-  confsys
+    alterar_sources_list
+    interface
+    conf_final
 else
-  printf "Necessita ser root para executar o script.\nAbortando...\n"
-  exit
+    printf "Necessita ser root para executar o script.\nAbortando...\n"
+    exit
 fi
 
 printf "Pós instalação terminada com sucesso"
