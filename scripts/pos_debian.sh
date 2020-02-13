@@ -21,7 +21,7 @@ INTERFACE="openbox lxappearance lightdm lightdm-gtk-greeter arc-theme bc \
 FONTES="fonts-cantarell ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu"
 
 PROGRAMAS_BASICOS="htop transmission volumeicon-alsa galculator redshift \
- gthumb vlc meld evince freeplane conky terminator bash-completion \
+ gthumb vlc meld evince conky terminator bash-completion \
  compton-conf telegram-desktop wicd wicd-curses docker.io gvfs-backends \
  keepassxc"
 
