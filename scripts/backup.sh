@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-##   Criado por Eduardo Lopes
+##   Criado por raikon55
 ##   edufelopes@gmail.com
 #
 ## Script simples para backup em HD externo
