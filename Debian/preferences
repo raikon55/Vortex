@@ -13,8 +13,3 @@ Pin-Priority: 100
 Package: *
 Pin: release o=www.geogebra.net
 Pin-Priority: 100
-
-Package: *
-Pin: release o=vscode stable
-Pin-Priority: 100
-
