@@ -1,0 +1,31 @@
+# .bash_profile
+
+# HISTORICO
+## Evitar registros repetidos
+HISTCONTROL=ignoreboth:erasedups
+## Não sobrescrever o historico
+shopt -s histappend
+## Tamanho máximo do arquivo e total de linhas
+HISTSIZE=10000
+HISTFILESIZE=20000
+## Linha, data e hora do comando
+HISTTIMEFORMAT="%F %T "
+
+# TERMINAL
+## Confere o tamanho da janela após cada comando
+## e redimensiona, se necessário
+shopt -s checkwinsize
+PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+
+
+# PATH
+PATH="$PATH:$HOME/bin"
+## GRADLE
+export GRADLE_HOME="/opt/gradle-6.6.1"
+export PATH="$PATH:$GRADLE_HOME/bin"
+## PYENV
+export PATH="/home/hitchhiker/.pyenv/bin:$PATH"
+## CONDA
+export PATH="/home/hitchhiker/COmpartilhado/Linux/Pesquisa_Daniel/miniconda3/bin:$PATH"
+
+

@@ -1,11 +1,20 @@
-# ~./bash_aliases executed by ~/.bashrc
-# Don't put your custom aliases on .bashrc
+# .bash_aliases
 
-alias mars="java -jar $HOME/bin/mars-4.4.jar"
-alias logisim="java -jar $HOME/bin/logisim-2.7.1.jar"
-alias vcn="wine $HOME/bin/VCN.exe"
-alias eclipse="$HOME/Documentos/Eclipse/eclipse/eclipse -consolelog -debug"
-alias repast="$HOME/Documentos/Eclipse/eclipse_committers/eclipse -consolelog -debug"
-alias mv='mv -i'
-alias rm='rm -i'
+if [ -x /usr/bin/dircolors ]; then
+    eval "$(dircolors -b)"
+fi
+
+# LS ALIASES
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -A"
+alias l="ls -CF"
+alias dir="dir --color=auto"
+alias vdir="vdir --color=auto"
+
+# GREP ALIASES
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+
 
